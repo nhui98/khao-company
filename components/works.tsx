@@ -57,8 +57,6 @@ const Works = () => (
         )}
       ></Tile>
     </TileContent>
-    <TileContent>Bar</TileContent>
-    <TileContent>Baz</TileContent>
   </TileWrapper>
 );
 
