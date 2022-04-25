@@ -5,6 +5,7 @@ import Image from "next/image";
 import Landing from "../components/landing";
 import Aboutus from "../components/aboutus";
 import Skills from "../components/skills";
+import Works from "../components/works";
 
 const Home: NextPage = () => {
   return (
@@ -18,6 +19,8 @@ const Home: NextPage = () => {
       <Landing />
       <Aboutus />
       <Skills />
+      <Works />
+      <Aboutus />
     </div>
   );
 };
