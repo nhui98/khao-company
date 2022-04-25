@@ -6,6 +6,7 @@ import Landing from "../components/landing";
 import Aboutus from "../components/aboutus";
 import Skills from "../components/skills";
 import Works from "../components/works";
+import TrustedBy from "../components/trustedby";
 
 const Home: NextPage = () => {
   return (
@@ -20,7 +21,7 @@ const Home: NextPage = () => {
       <Aboutus />
       <Skills />
       <Works />
-      <Aboutus />
+      <TrustedBy />
     </div>
   );
 };

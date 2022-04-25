@@ -15,7 +15,13 @@ export const WorkBackground = () => {
   );
 };
 
-export const WorkLeft = ({ children, progress }) => {
+export const WorkLeft = ({
+  children,
+  progress,
+}: {
+  children: any;
+  progress: number;
+}) => {
   let translateY = Math.max(0, 50 - progress * 3 * 50);
 
   if (progress > 0.85) translateY = Math.max(-50, -(progress - 0.85) * 2 * 50);
@@ -32,7 +38,7 @@ export const WorkLeft = ({ children, progress }) => {
   );
 };
 
-export const WorkRight: React.FC<{ progress: number }> = ({
+export const WorkRight: React.FC<{ progress: number; children: any }> = ({
   children,
   progress,
 }) => {
