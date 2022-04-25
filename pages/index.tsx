@@ -4,6 +4,7 @@ import Image from "next/image";
 
 import Landing from "../components/landing";
 import Aboutus from "../components/aboutus";
+import Skills from "../components/skills";
 
 const Home: NextPage = () => {
   return (
@@ -16,6 +17,7 @@ const Home: NextPage = () => {
 
       <Landing />
       <Aboutus />
+      <Skills />
     </div>
   );
 };
