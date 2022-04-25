@@ -15,7 +15,6 @@ const Home: NextPage = () => {
       </Head>
 
       <Landing />
-
       <Aboutus />
     </div>
   );

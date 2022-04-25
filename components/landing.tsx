@@ -1,9 +1,10 @@
-import { useRef, useContext, useState, useCallback } from "react";
+import { useRef, useContext, useState, useCallback, useEffect } from "react";
 import Image from "next/image";
 import { AiOutlineDown } from "react-icons/ai";
 import { ScrollContext } from "../utils/scroll-observer";
 
 const Landing: React.FC = () => {
+  const [imageLoaded, setImageLoaded] = useState(false);
   const refContainer = useRef<HTMLDivElement>(null);
   const { scrollY } = useContext(ScrollContext);
 
@@ -13,6 +14,14 @@ const Landing: React.FC = () => {
   if (elContainer) {
     progress = Math.min(1, scrollY / elContainer.clientHeight);
   }
+
+  const handleImageLoaded = useCallback(() => {
+    setImageLoaded(true);
+  }, []);
+
+  useEffect(() => {
+    handleImageLoaded();
+  }, [handleImageLoaded]);
 
   return (
     <div
@@ -32,7 +41,9 @@ const Landing: React.FC = () => {
         <source src="/assets/bg-video.mp4" type="video/mp4" />
       </video>
       <div
-        className={`flex-grow-0 z-10 pt-10 transition-opacity duration-1000`}
+        className={`flex-grow-0 z-10 pt-10 transition-opacity duration-1000 ${
+          imageLoaded ? "opacity-100" : "opacity-0"
+        }`}
       >
         khao
       </div>
@@ -42,7 +53,11 @@ const Landing: React.FC = () => {
           <span>Web Development,</span> <span>done wrong.</span>
         </h2>
       </div>
-      <div className="z-10 text-3xl text-white flex-grow-0 pb-20 md:pb-10 transition-all duration-1000">
+      <div
+        className={`z-10 text-3xl text-white flex-grow-0 pb-20 md:pb-10 transition-all duration-1000 ${
+          imageLoaded ? "opacity-100" : "opacity-0 -translate-y-10"
+        }`}
+      >
         <AiOutlineDown />
       </div>
     </div>
