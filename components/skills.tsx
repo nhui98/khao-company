@@ -2,13 +2,17 @@ import { useContext, useRef } from "react";
 import s from "../styles/skills.module.css";
 import { ScrollContext } from "../utils/scroll-observer";
 
+interface Props {
+  commits: number;
+}
+
 const opacityForBlock = (sectionProgress: number, blockNo: number) => {
   const progress = sectionProgress - blockNo;
   if (progress > 0 && progress < 1) return 1;
   return 0.2;
 };
 
-const Skills = () => {
+const Skills = ({ commits }: Props) => {
   const { scrollY } = useContext(ScrollContext);
   const refContainer = useRef<HTMLDivElement>(null);
 
@@ -28,6 +32,8 @@ const Skills = () => {
     progress = Math.min(numOfPages - 0.5, Math.max(0.5, percentY * numOfPages));
   }
 
+  const numOfCommits = Math.round(commits || 0).toLocaleString();
+
   return (
     <div ref={refContainer} className="bg-black text-white">
       <div className="min-h-screen max-q-5xl mx-auto px-10 lg:px-20 py-23 md:py-28 lg:py-36 flex flex-col justify-center items-center text-4xl md:text-6xl lg:text-7xl tracking-tight font-semibold">
@@ -41,12 +47,13 @@ const Skills = () => {
           We know our tools outside in.
         </div>
         <span
-          className={`${s.skillText} inline-block after:content-['_']`}
+          className={`${s.skillText} inline-block after:content-['_'] py-10`}
           style={{
             opacity: opacityForBlock(progress, 1),
           }}
         >
-          In other words, we have no idea what we&apos;re doing
+          Our team can build exciting, revolutionary next-generation{" "}
+          <strong>hello world</strong> apps
         </span>
         <span
           className={`${s.skillText} inline-block`}
@@ -54,8 +61,8 @@ const Skills = () => {
             opacity: opacityForBlock(progress, 2),
           }}
         >
-          What we do know however, is how to build an exciting, revolutionary
-          next-generation <strong>hello world</strong> app
+          The number of commits we our team has pushed out in the last year has
+          been a staggering {numOfCommits}
         </span>
       </div>
     </div>
