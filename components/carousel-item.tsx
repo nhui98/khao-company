@@ -12,7 +12,8 @@ const CarouselItem = ({ children, index }: Props) => {
 
   const isActive = selectedIndex === index;
   const handleClick = useCallback(() => {
-    if (emblaApi === undefined) return emblaApi.scrollTo(index);
+    if (emblaApi === undefined) return;
+    emblaApi.scrollTo(index);
   }, [emblaApi, index]);
 
   return (

@@ -1,5 +1,6 @@
 import ClientLogos from "./client-logos";
 import SliderContainer from "./slider";
+import Testimonials from "./testimonials";
 
 const TrustedBy = () => (
   <section className="bg-white min-h-screen flex flex-col justify-center gap-16 md:gap-32">
@@ -18,7 +19,7 @@ const TrustedBy = () => (
         </h3>
       </div>
     </div>
-    <div className="">testimonials</div>
+    <Testimonials />
     <div className="flex-1 bg-black"></div>
   </section>
 );

@@ -1,12 +1,6 @@
 import { EmblaCarouselType } from "embla-carousel-react";
 import useEmblaCarousel from "embla-carousel-react";
-import {
-  createContext,
-  ReactNode,
-  useCallback,
-  useEffect,
-  useState,
-} from "react";
+import { createContext, useCallback, useEffect, useState } from "react";
 import ClassNames from "embla-carousel-class-names";
 import Autoplay from "embla-carousel-autoplay";
 import styles from "../styles/skills.module.css";
@@ -16,18 +10,19 @@ interface ContextValue {
   selectedIndex: number;
 }
 
-interface Props {
-  className?: string;
-  children: ReactNode;
-}
-
 export const CarouselContext = createContext<ContextValue>({
   embla: undefined,
   selectedIndex: -1,
 });
 
+interface Props {
+  className?: string;
+  children: any;
+}
+
 const Carousel: React.FC<Props> = ({ children, className }) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
+
   const [viewportRef, emblaApi] = useEmblaCarousel(
     {
       loop: true,
@@ -38,7 +33,10 @@ const Carousel: React.FC<Props> = ({ children, className }) => {
   );
 
   const onSelect = useCallback(() => {
-    if (!emblaApi) return setSelectedIndex(emblaApi.selectedScrollSnap());
+    if (!emblaApi) {
+      return;
+    }
+    setSelectedIndex(emblaApi.selectedScrollSnap());
   }, [emblaApi, setSelectedIndex]);
 
   useEffect(() => {

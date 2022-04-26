@@ -7,6 +7,7 @@ import Aboutus from "../components/aboutus";
 import Skills from "../components/skills";
 import Works from "../components/works";
 import TrustedBy from "../components/trustedby";
+import Testimonials from "../components/testimonials";
 
 const Home: NextPage = () => {
   return (
