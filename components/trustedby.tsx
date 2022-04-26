@@ -1,3 +1,6 @@
+import ClientLogos from "./client-logos";
+import SliderContainer from "./slider";
+
 const TrustedBy = () => (
   <section className="bg-white min-h-screen flex flex-col justify-center gap-16 md:gap-32">
     <div className="flex-1"></div>
@@ -6,7 +9,7 @@ const TrustedBy = () => (
         <span className="whitespace-nowrap">trusted by </span>
         <span className="whitespace-nowrap">no one</span>
       </h3>
-      <div>logos</div>
+      <ClientLogos />
     </div>
     <div className="flex flex-col justify-center items-center">
       <div className="container mx-auto lg:max-w-[70%] lg:px-10">

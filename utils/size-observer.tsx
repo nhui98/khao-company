@@ -8,7 +8,7 @@ export const SizeContext = createContext<ScrollValue>({
   innerWidth: 0,
 });
 
-const SizeObserver = ({ children }) => {
+const SizeObserver = ({ children }: any) => {
   const [innerWidth, setInnerWidth] = useState(0);
   const handleResize = useCallback(() => {
     setInnerWidth(window.innerWidth);
